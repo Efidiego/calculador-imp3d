@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Precificação Impressão 3D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>📐 Precificação Impressão 3D</h1>
+  <p class="subtitle">Custo real + lucro + marketplace</p>
+
+  <!-- FILAMENTO -->
+  <section>
+    <h2>1. Filamento</h2>
+    <label>Peso da peça (g)</label>
+    <input type="number" id="pesoPeca">
+
+    <label>Preço do kg (R$)</label>
+    <input type="number" id="precoKilo" value="120">
+  </section>
+
+  <!-- SUPORTE -->
+  <section>
+    <label class="checkbox">
+      <input type="checkbox" id="usarSuporte"> Usar suportes
+    </label>
+
+    <div id="boxSuporte" class="hidden">
+      <label>Peso dos suportes (g)</label>
+      <input type="number" id="pesoSuporte">
+    </div>
+  </section>
+
+  <!-- TEMPO E ENERGIA -->
+  <section>
+    <h2>2. Tempo e Energia</h2>
+
+    <label>Duração da impressão (h)</label>
+    <input type="number" step="0.1" id="duracao">
+
+    <label>Impressora</label>
+    <select id="impressora">
+      <option value="">Selecione</option>
+      <option value="bambu">Bambu Lab A1 Mini</option>
+      <option value="ender">Creality Ender 3</option>
+      <option value="prusa">Prusa MK3</option>
+    </select>
+
+    <label>Consumo (W)</label>
+    <input type="number" id="consumo">
+
+    <label>Tarifa de energia (R$/kWh)</label>
+    <input type="number" step="0.01" id="tarifa" value="0.95">
+
+    <label>Manutenção (R$/h)</label>
+    <input type="number" step="0.01" id="manutencao" value="2">
+  </section>
+
+  <!-- MARKETPLACE -->
+  <section>
+    <h2>3. Marketplace</h2>
+
+    <label>Plataforma</label>
+    <select id="marketplace">
+      <option value="">Venda direta</option>
+      <option value="shopee">Shopee (14%)</option>
+      <option value="ml">Mercado Livre (16% + R$6)</option>
+    </select>
+  </section>
+
+  <!-- LUCRO -->
+  <section>
+    <h2>4. Lucro</h2>
+    <label>Margem (%)</label>
+    <input type="number" id="lucro" value="100">
+    <button onclick="calcular()">CALCULAR</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="resultado">
+    <div id="resultado">Preencha os dados.</div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
